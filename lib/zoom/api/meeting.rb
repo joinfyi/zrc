@@ -20,6 +20,11 @@ module Zoom # :nodoc:
         def get_meeting(meeting_id:)
           parse(JSON.parse(connection.get("meetings/#{meeting_id}").body))
         end
+
+        # Update livestream data
+        def update_livestream(meeting_id:, params:)
+          parse(JSON.parse(connection.patch("meetings/#{meeting_id}/livestream", params.to_json).body))
+        end
       end
     end
   end
