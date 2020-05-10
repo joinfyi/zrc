@@ -28,7 +28,7 @@ module Zoom # :nodoc:
 
         # Delete meeting
         def delete_meeting(meeting_id:)
-          parse(JSON.parse(connection.delete("meetings/#{meeting_id}").body))
+          connection.delete("meetings/#{meeting_id}").body)
         end
       end
     end
