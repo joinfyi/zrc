@@ -25,6 +25,11 @@ module Zoom # :nodoc:
         def update_livestream(meeting_id:, params:)
           connection.patch("meetings/#{meeting_id}/livestream", params.to_json)
         end
+
+        # Delete meeting
+        def delete_meeting(meeting_id:)
+          parse(JSON.parse(connection.delete("meetings/#{meeting_id}").body))
+        end
       end
     end
   end
